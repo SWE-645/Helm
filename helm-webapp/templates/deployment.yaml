@@ -1,33 +1,21 @@
+# deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-  labels:
-    workload.user.cattle.io/workloadselector: apps.deployment-hw2-survey
   name: survey
   namespace: argocd1
 spec:
-  progressDeadlineSeconds: 600
-  replicas: 4
-  revisionHistoryLimit: 10
+  replicas: {{ .Values.surveyDeployment.replicas }}
   selector:
     matchLabels:
       workload.user.cattle.io/workloadselector: apps.deployment-hw2-survey
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
   template:
     metadata:
       labels:
         workload.user.cattle.io/workloadselector: apps.deployment-hw2-survey
     spec:
       containers:
-        - image: njogani/swe645_hw2:202311270456
-          imagePullPolicy: Always
-          name: container-0
-          ports:
-            - containerPort: 8080
-              name: survey
-              protocol: TCP
+      - name: container-0
+        image: {{ .Values.surveyDeployment.image }}
+        ports:
+        - containerPort: {{ .Values.surveyDeployment.containerPort }}
