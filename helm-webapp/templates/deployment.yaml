@@ -120,7 +120,7 @@ metadata:
   uid: 61e5b7df-4dea-41db-bca6-319099a20e52
 spec:
   progressDeadlineSeconds: 600
-  replicas: 3
+  replicas: 5
   revisionHistoryLimit: 10
   selector:
     matchLabels:
@@ -160,7 +160,7 @@ spec:
       securityContext: {}
       terminationGracePeriodSeconds: 30
 status:
-  availableReplicas: 3
+  availableReplicas: 5
   conditions:
     - lastTransitionTime: '2023-10-07T16:55:08Z'
       lastUpdateTime: '2023-11-27T04:56:22Z'
@@ -175,6 +175,6 @@ status:
       status: 'True'
       type: Available
   observedGeneration: 20
-  readyReplicas: 3
-  replicas: 3
-  updatedReplicas: 3
+  readyReplicas: 5
+  replicas: 5
+  updatedReplicas: 5
