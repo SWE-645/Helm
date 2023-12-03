@@ -1,6 +1,6 @@
 # values.yaml
 surveyDeployment:
-  replicas: 4
+  replicas: 3
   image: "njogani/swe645_hw2:202311270456"
   containerPort: 8080
 
