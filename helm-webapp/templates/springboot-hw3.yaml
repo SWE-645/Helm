@@ -1,24 +1,15 @@
+# springboot-hw3-service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
   name: springboot-hw3
   namespace: argocd1
 spec:
-  clusterIP: 10.43.93.61
-  clusterIPs:
-    - 10.43.93.61
-  externalTrafficPolicy: Cluster
-  internalTrafficPolicy: Cluster
-  ipFamilies:
-    - IPv4
-  ipFamilyPolicy: SingleStack
+  type: {{ .Values.springbootHw3Service.type }}
   ports:
-    - nodePort: 30892
-      port: 8080
-      protocol: TCP
-      targetPort: 8080
+    - protocol: TCP
+      port: {{ .Values.springbootHw3Service.port }}
+      targetPort: {{ .Values.springbootHw3Service.port }}
+      nodePort: {{ .Values.springbootHw3Service.nodePort }}
   selector:
     workload.user.cattle.io/workloadselector: apps.deployment-hw2-survey
-  sessionAffinity: None
-  type: NodePort
