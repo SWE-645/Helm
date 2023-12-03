@@ -3,8 +3,6 @@ kind: Deployment
 metadata:
   annotations:
     deployment.kubernetes.io/revision: '13'
-    field.cattle.io/publicEndpoints: >-
-      [{"addresses":["172.31.62.250"],"port":30892,"protocol":"TCP","serviceName":"hw2:springboot-hw3","allNodes":true},{"addresses":["172.31.62.250"],"port":80,"protocol":"HTTP","serviceName":"hw2:survey","ingressName":"hw2:ec2","hostname":"hw3swe645.net","path":"/","allNodes":false},{"addresses":["172.31.62.250"],"port":31339,"protocol":"TCP","serviceName":"hw2:survey-nodeport","allNodes":true}]
   labels:
     workload.user.cattle.io/workloadselector: apps.deployment-hw2-survey
   name: survey
