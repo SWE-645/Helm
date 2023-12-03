@@ -1,0 +1,14 @@
+# values.yaml
+surveyDeployment:
+  replicas: 4
+  image: "njogani/swe645_hw2:202311270456"
+  containerPort: 8080
+
+surveyService:
+  type: ClusterIP
+  port: 8080
+
+springbootHw3Service:
+  type: NodePort
+  port: 8080
+  nodePort: 30892
